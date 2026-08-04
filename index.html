@@ -15,23 +15,50 @@ body{
     font-family:serif;
 }
 .chat{
-    padding:20px;
+    padding:15px;
     height:100vh;
     overflow-y:auto;
-    box-sizing:border-box;
+    background:#443874;
 }
 .message{
-    text-align: left;
-    background:#ccff00;
-    font-size:14px;
-    padding:10px 10px;
-    margin:10px 0;
-    border-radius:15px;
-    max-width:99%;
-    width:fit-content;
+    margin:8px 0;
+    width:100%;
     display:none;
 }
-
+.teacher{
+    text-align:left;
+}
+.student{
+    text-align:right;
+}
+.bubble{
+    display:inline-block;
+    max-width:100%;
+    padding:10px 14px;
+    border-radius:18px;
+    font-size:14px;
+    line-height:1.6;
+    box-shadow:0 2px 5px rgba(0,0,0,.15);
+}
+.teacher .bubble{
+    background:#ffffff;
+    color:#222;
+}
+.student .bubble{
+    background:#06c755;
+    color:white;
+    text-align:left;
+}
+.question .bubble{
+    background:#fff3cd;
+    color:#000;
+    border:2px solid #ffcc00;
+}
+.title .bubble{
+    background:#1976d2;
+    color:white;
+    font-weight:bold;
+}
 /* スマホ画面 */
 .phone{
     width:390px;
@@ -59,7 +86,7 @@ body{
 
 /* タイトル */
 .game-title{
-    font-size:48px;
+    font-size:60px;
     font-weight:bold;
     text-shadow:0 0 15px #00ffff;
     margin-top: 0px;
@@ -67,7 +94,7 @@ body{
 
 /* サブタイトル */
 .subtitle{
-    font-size:18px;
+    font-size:30px;
     opacity:.8;
     margin-bottom:80px;
 }
@@ -125,6 +152,7 @@ body{
     height:100%;
     background:#222;
     color:white;
+    font-size: 18px;
     text-align:center;
     padding-top:40px;
 }
@@ -209,10 +237,10 @@ body{
 .header{
     position:sticky;
     top:0;
-    background:linear-gradient(to left, green, yellowgreen);
-    color:black;
+    background:#1f3a5f;
+    color:white;
     padding:15px;
-    font-size:20px;
+    font-size:30px;
     font-weight:bold;
     z-index:100;
 }
@@ -457,10 +485,14 @@ html{
     margin-top:433px;
 
 }
+.box{
+    margin: 15px;
+}
 </style>
 </head>
 
 <body>
+
 
 <div class="phone">
     <!--タイトル画面-->
@@ -482,10 +514,30 @@ html{
         </button>
 
     </div>
+    <!--説明画面-->
+    <div id="guideScreen" class="game-screen" style="display:none;">
+        <h1>遊び方</h1>
+
+        <div style="padding:20px;font-size:18px;line-height:2;">
+            ・画面をクリックすると会話が進みます。<br><br>
+
+            ・最後に問題が表示されます。<br><br>
+
+            ・答えだと思う番号のボタンを押して<br>
+            回答してください。<br><br>
+
+            ・楽しく学びながら<br>
+            サイバー犯罪対策を身につけましょう！
+        </div>
+
+        <button class="start-btn" onclick="showMenu()">
+            内容選択へ
+        </button>
+    </div>
     <!--内容選択画面-->
     <div id="gameScreen" class="game-screen">
         <h1>内容選択</h1>
-        <p>学びたいものを選んでね！</p>
+        <h2>学びたいものを選んでね！</h2>
         <button class="series-btn"onclick="startSeries1()">
             1.サポート詐欺
         </button>
@@ -510,22 +562,53 @@ html{
 
         <div class="chat">
             <div class="no-select">
-                <div class="message"><b>＜サポート詐欺とは？＞</b></div>
-                <div class="message"><b>先生：みなさん、<br>　　　パソコンやスマホを使っていて突然、<br>　　　こんな表示が出たことはありませんか？</b></div>
-                <div class="message"><b>・「ウイルスに感染しました！」<br>・「今すぐサポートセンターに電話してください！」<br>・大きな警告音が鳴る<br></b></div>
-                <div class="message"><b>生徒：あります！本当に感染したのかと思って<br>　　　焦ってしまいます。</b></div>
-                <div class="message"><b>先生：実は、その中には「サポート詐欺」と<br>　　　呼ばれるものがあります。</b></div>
-                <div class="message"><b>生徒：サポート詐欺って何ですか？</b></div>
-                <div class="message"><b>先生：本物ではない警告画面を表示して<br>　　　不安にさせ、利用者をだます詐欺です。</b></div>
-                <div class="message"><b>生徒：どうやってだますのですか？</b></div>
-                <div class="message"><b>先生：「今すぐ電話してください」などと<br>　　　表示して、お金をだまし取ったり、<br>　　　個人情報を聞き出したりしようとします。</b></div>
-                <div class="message"><b>生徒：そんな画面が出ても、慌てないことが<br>　　　大切なのですね。</b></div>
-                <div class="message"><b>先生：その通りです。<br>　　　まずは落ち着いて行動しましょう。</b></div>
-                <div class="message"><b>先生：ではここで問題です！</b></div>
-                <div class="message"><b>先生：偽のセキュリティ警告画面や警告音が<br>　　　鳴った場合、何をするべきでしょうか。</b></div>
-                <div class="message"><img src="[1].png" alt="偽警告画面" width="300px" height="200px"></div>
-                <div class="message"><b>【問題】<br>[1] 警察に電話する<br>[2] 個人情報を入力する<br>[3] 画面に表示された電話番号に連絡する</b></div>
-                <div class="message"><b>
+                <div class="message title">
+                    <div class="bubble"><b>＜サポート詐欺とは？＞</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：みなさん、パソコンやスマホを<br>　　　使っていて突然、こんな表示が<br>　　　出たことはありませんか？</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>・「ウイルスに感染しました！」<br>・「今すぐサポートセンターに<br>　　　　　電話してください！」<br>・大きな警告音が鳴る<br></b></div>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：あります！<br>　　　本当に感染したのかと思って<br>　　　焦ってしまいます。</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：実は、その中には「サポート詐欺」<br>　　　と呼ばれるものがあります。</b></div>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：サポート詐欺って何ですか？</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：本物ではない警告画面<br>　　　を表示して不安にさせ、<br>　　　利用者をだます詐欺です。</b></div>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：どうやってだますのですか？</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：「今すぐ電話してください」<br>　　　などと表示して、お金を<br>　　　だまし取ったり、個人情報を<br>　　　聞き出したりしようとします。</b></div>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：そんな画面が出ても、<br>　　　慌てないことが大切なのですね。</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：その通りです。まずは<br>　　　落ち着いて行動しましょう。</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：ではここで問題です！</b></div>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><b>偽のセキュリティ警告画面や警告音が<br>鳴った場合、何をするべきでしょうか。</b></div>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><img src="[1].png" alt="偽警告画面" width="100%" height="100%"></div>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><b>【問題】<br>[1] 警察に電話する<br>[2] 個人情報を入力する<br>[3] 画面に表示された<br>電話番号に連絡する</b></div>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><b>
                     <button class="sentaku-btn"onclick="startanswer1()">
                         [1]
                     </button>
@@ -535,7 +618,7 @@ html{
                     <button class="sentaku-btn"onclick="startanswer3()">
                         [3]
                     </button><br></b></div>
-                
+                </div>
             </div>
                 
         </div>
@@ -580,7 +663,7 @@ html{
             <div id="answerscreen3" class="answerscreen3">
                 <h1 class="fuseikai"><b>不正解！</b></h1>
                 <div class="sikaku">
-                    [3] 画面に表示された電話番号に連絡する<br><br><br>
+                    [3]画面に表示された電話番号に連絡する<br><br><br>
                     ・詐欺グループにつながる可能性がある。<br><br><br>
                     ・お金を請求されたり、遠隔操作ソフトを<br>
                     　入れさせられたりする危険がある。
@@ -594,74 +677,118 @@ html{
             <div class="header">
                 偽の通販サイト編
             </div>
-            
             <div class="chat">
-                <div class="message"><b>＜偽の通販サイトとは？＞</b></div>
-                <div class="message"><b>先生：みなさんはインターネットで買い物を<br>
-                                        　　　したことがありますか？</b></div>
-                <div class="message"><b>生徒：あります！とても便利です。</b></div>
-                <div class="message"><b>先生：そうですね。でも、本物の通販サイトに<br>
-                                        　　　見えても、実は偽物のサイトがあることを<br>
-                                        　　　知っていますか？</b></div>
-                <div class="message"><b>生徒：えっ！見た目だけでは分からないんですか？</b></div>
-                <div class="message"><b>先生：はい。最近の偽通販サイトは、<br>
-                                        　　　本物そっくりに作られていて、<br>
-                                        　　　日本語も自然なことがあります。</b></div>
-                <div class="message"><b>生徒：じゃあ、どうやって見分ければ<br>
-                                        　　　いいんですか？</b></div>
-                <div class="message"><b>先生：例えば、<br>
-                                        　　　商品の値段が極端に安い、<br>
-                                        　　　販売事業者の情報がない、<br>
-                                        　　　連絡先が不自然、<br>
-                                        　　　支払い方法が限定されている<br>
-                                        　　　といった特徴があります。</b></div>
-                <div class="message"><b>生徒：安いからといって、<br>
-                                        　　　すぐ購入してはいけないんですね。</b></div>
-                <div class="message"><b>先生：その通りです。購入前に、<br>
-                                        　　　公式サイトや販売事業者の情報を<br>
-                                        　　　確認することが大切です。</b></div>
-                <div class="message"><b>生徒：他にも確認したほうが<br>
-                                        　　　いいことはありますか？</b></div>
-                <div class="message"><b>先生：はい。サイトのURLが公式サイトと<br>
-                                        　　　同じかどうかを確認したり、販売事業者の<br>
-                                        　　　情報がきちんと掲載されているかを<br>
-                                        　　　確認したりすることも重要です。</b></div>
-                <div class="message"><b>生徒：なるほど。見た目だけで判断せず、<br>
-                                        　　　細かいところまで確認することが<br>
-                                        　　　大切なんですね。</b></div>
-                <div class="message"><b>先生：その通りです。偽通販サイトは<br>
-                                        　　　見た目だけでは分からないことも<br>
-                                        　　　あるので、購入前にしっかり確認する<br>
-                                        　　　習慣をつけましょう。</b></div>
-                <div class="message"><b>先生：それでは、実際に偽通販サイトを<br>
-                                        　　　見分けられるか確認してみましょう。</b></div>
-                <div class="message"><b>先生：それでは問題です。</b></div>
-                <div class="message"><b>スマートフォンを見ていると、<br>
-                                        有名家電メーカーの掃除機が通常39,800円の<br>
-                                        ところ、90％OFFで販売されていました。</b></div>
-                <div class="message"><b>サイトの見た目もしっかりしており、<br>
-                                        日本語も自然でした。</b></div>
-                <div class="message"><b>あなたならどうしますか？</b></div>
-                <div class="message"><b>[1] 非常に安いので、売り切れる前にすぐ購入する<br>
-                                        [2] 家族や知人にも知らせて、一緒に購入する<br>
-                                        [3] 購入する前に、公式サイトの価格や<br>
-                                        　　販売事業者の情報を確認する</b></div>
-                <div class="message"><b>
-                        <button class="sentaku-btn"onclick="startanswer4()">
-                            [1]
-                        </button>
-                        <button class="sentaku-btn"onclick="startanswer5()">
-                            [2]
-                        </button>
-                        <button class="sentaku-btn"onclick="startanswer6()">
-                            [3]
-                        </button><br></b></div>
-                <div class="message"><b>　</b></div>
-            </div>
+                <div class="no-select">
+                    <div class="message title">
+                        <div class="bubble"><b>＜偽の通販サイトとは？＞</b></div>
+                    </div>
+                    <div class="message teacher"> 
+                        <div class="bubble"><b>先生：みなさんはインターネットで買い物を<br>
+                                            　　　したことがありますか？</b></div>
+                    </div>
+                    <div class="message student">
+                        <div class="bubble"><b>生徒：あります！とても便利です。</b></div>
+                    </div>
+                    <div class="message teacher">
+                        <div class="bubble"><b>先生：そうですね。でも、本物の通販サイトに<br>
+                                            　　　見えても、実は偽物のサイトがあることを<br>
+                                            　　　知っていますか？</b></div>
+                    </div>
+                    <div class="message student">
+                        <div class="bubble"><b>生徒：えっ！見た目だけでは分からないんですか？</b></div>
+                    </div>
+                    <div class="message teacher">
+                        <div class="bubble"><b>先生：はい。最近の偽通販サイトは、<br>
+                                            　　　本物そっくりに作られていて、<br>
+                                            　　　日本語も自然なことがあります。</b></div>
+                    </div>
+                    <div class="message student">
+                        <div class="bubble"><b>生徒：じゃあ、どうやって見分ければ<br>
+                                            　　　いいんですか？</b></div>
+                    </div>
+                    <div class="message teacher">
+                        <div class="bubble"><b>先生：例えば、<br>
+                                            　　　商品の値段が極端に安い、<br>
+                                            　　　販売事業者の情報がない、<br>
+                                            　　　連絡先が不自然、<br>
+                                            　　　支払い方法が限定されている<br>
+                                            　　　といった特徴があります。</b></div>
+                    </div>
+                    <div class="message student">
+                        <div class="bubble"><b>生徒：安いからといって、<br>
+                                            　　　すぐ購入してはいけないんですね。</b></div>
+                    </div>
+                    <div class="message teacher">
+                        <div class="bubble"><b>先生：その通りです。購入前に、<br>
+                                            　　　公式サイトや販売事業者の情報を<br>
+                                            　　　確認することが大切です。</b></div>
+                    </div>
+                    <div class="message student">
+                        <div class="bubble"><b>生徒：他にも確認したほうが<br>
+                                            　　　いいことはありますか？</b></div>
+                    </div>
+                    <div class="message teacher">
+                        <div class="bubble"><b>先生：はい。サイトのURLが公式サイトと<br>
+                                            　　　同じかどうかを確認したり、販売事業者の<br>
+                                            　　　情報がきちんと掲載されているかを<br>
+                                            　　　確認したりすることも重要です。</b></div>
+                    </div>
+                    <div class="message student">
+                        <div class="bubble"><b>生徒：なるほど。見た目だけで判断せず、<br>
+                                            　　　細かいところまで確認することが<br>
+                                            　　　大切なんですね。</b></div>
+                    </div>
+                    <div class="message teacher">
+                        <div class="bubble"><b>先生：その通りです。偽通販サイトは<br>
+                                            　　　見た目だけでは分からないことも<br>
+                                            　　　あるので、購入前にしっかり確認する<br>
+                                            　　　習慣をつけましょう。</b></div>
+                    </div>
+                    <div class="message teacher">
+                        <div class="bubble"><b>先生：それでは、実際に偽通販サイトを<br>
+                                            　　　見分けられるか確認してみましょう。</b></div>
+                    </div>
+                    <div class="message teacher">
+                        <div class="bubble"><b>先生：それでは問題です。</b></div>
+                    </div>
+                    <div class="message question">
+                        <div class="bubble"><b>スマートフォンを見ていると、<br>
+                                            有名家電メーカーの掃除機が通常39,800円の<br>
+                                            ところ、90％OFFで販売されていました。</b></div>
+                    </div>
+                    <div class="message question">
+                        <div class="bubble"><b>サイトの見た目もしっかりしており、<br>
+                                            日本語も自然でした。</b></div>
+                    </div>
+                    <div class="message question">
+                        <div class="bubble"><b>あなたならどうしますか？</b></div>
+                    </div>
+                    <div class="message question"> 
+                        <div class="bubble"><b>[1] 非常に安いので、売り切れる前にすぐ購入する<br>
+                                            [2] 家族や知人にも知らせて、一緒に購入する<br>
+                                            [3] 購入する前に、公式サイトの価格や<br>
+                                            　　販売事業者の情報を確認する</b></div>
+                    </div>
+                    <div class="message question">
+                        <div class="bubble"><b>
+                            <button class="sentaku-btn"onclick="startanswer4()">
+                                [1]
+                            </button>
+                            <button class="sentaku-btn"onclick="startanswer5()">
+                                [2]
+                            </button>
+                            <button class="sentaku-btn"onclick="startanswer6()">
+                                [3]
+                            </button></b></div>
+                    </div>
+                </div>
+            </div>       
         </div>
+    </div>
+        
         <div class="no-select">
             <div id="answerscreen4" class="answerscreen4">
-                <hi class="fuseikai"><b>不正解！</b></hi>
+                <h1 class="fuseikai"><b>不正解！</b></h1>
                 <div class="sikaku">
                     [1]非常に安いので、<br>
                     売り切れる前にすぐ購入する<br><br>
@@ -675,7 +802,7 @@ html{
                 </button>
             </div>
             <div id="answerscreen5" class="answerscreen5">
-                <hi class="fuseikai"><b>不正解！</b></hi>
+                <h1 class="fuseikai"><b>不正解！</b></h1>
                 <div class="sikaku">
                     [2]家族や知人にも知らせて、<br>
                     一緒に購入する<br><br>
@@ -714,64 +841,112 @@ html{
 
         <div class="chat">
             <div class="no-select">
-                <div class="message"><b>＜フィッシング詐欺とは？＞</b></div>
-
-                <div class="message"><b>先生：みなさんは、銀行や宅配会社、通販サイト<br>
+                <div class="message title">
+                    <div class="bubble"><b>＜フィッシング詐欺とは？＞</b></div>
+                </div>
+                <div class="message teacher"> 
+                    <div class="bubble"><b>先生：みなさんは、銀行や宅配会社、通販サイト<br>
                                         　　　などを名乗るメールやSMSが<br>
                                         　　　届いたことはありますか？</b></div>
-                <div class="message"><b>生徒：あります！「アカウントが停止されます」<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：あります！「アカウントが停止されます」<br>
                                         　　　とか「確認してください」というメールを<br>
                                         　　　見たことがあります。</b></div>
-                <div class="message"><b>先生：その中には、フィッシング詐欺という<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：その中には、フィッシング詐欺という<br>
                                         　　　悪質な手口が含まれていることがあります。</b></div>
-                <div class="message"><b>生徒：フィッシング詐欺って何ですか？</b></div>
-                <div class="message"><b>先生：本物の企業やサービスを装ったメールや<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：フィッシング詐欺って何ですか？</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：本物の企業やサービスを装ったメールや<br>
                                         　　　SMSを送り、偽のサイトへ誘導して<br>
                                         　　　ID・パスワードや個人情報を<br>
                                         　　　盗み取る詐欺です。</b></div>
-                <div class="message"><b>生徒：見た目だけで本物か偽物か分かるんですか？</b></div>
-                <div class="message"><b>先生：最近は本物そっくりのメールや<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：見た目だけで本物か偽物か分かるんですか？</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：最近は本物そっくりのメールや<br>
                                         　　　サイトも多く、見た目だけでは判断が<br>
                                         　　　難しくなっています。</b></div>
-                <div class="message"><b>生徒：じゃあ、どうすればいいんですか？</b></div>
-                <div class="message"><b>先生：メールやSMSのリンクを直接押さず、<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：じゃあ、どうすればいいんですか？</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：メールやSMSのリンクを直接押さず、<br>
                                         　　　公式サイトや公式アプリからログインして<br>
                                         　　　確認することが大切です。</b></div>
-                <div class="message"><b>生徒：慌ててメールのリンクを開かないことが<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：慌ててメールのリンクを開かないことが<br>
                                         　　　重要なんですね。</b></div>
-                <div class="message"><b>先生：その通りです。不審なメールを<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：その通りです。不審なメールを<br>
                                         　　　受け取ったら、<br>
                                         　　　まず落ち着いて確認しましょう。</b></div>
-                <div class="message"><b>生徒：例えば、銀行を名乗るメールが届いたら<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：例えば、銀行を名乗るメールが届いたら<br>
                                         　　　どうすればいいですか？</b></div>
-                <div class="message"><b>先生：まずメールに書かれているリンクや<br>
-                                        　　　ボタンは押さないようにしましょう。</b></div>
-                <div class="message"><b>生徒：メールに「今すぐ確認してください」と<br>
-                                        　　　書かれていてもですか？</b></div>
-                <div class="message"><b>先生：はい。焦らせる言葉はフィッシング詐欺で<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：まずメールに書かれているリンクや<br>
+                                                　　　ボタンは押さないようにしましょう。</b></div>
+                </div>
+            <div class="message student">
+                <div class="bubble"><b>生徒：メールに「今すぐ確認してください」と<br>
+                                       　　　書かれていてもですか？</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：はい。焦らせる言葉はフィッシング詐欺で<br>
                                         　　　よく使われる手口です。</b></div>
-                <div class="message"><b>生徒：では、どうやって確認すれば<br>
+                    </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：では、どうやって確認すれば<br>
                                         　　　いいのですか？</b></div>
-                <div class="message"><b>先生：銀行の公式アプリや公式サイトを<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：銀行の公式アプリや公式サイトを<br>
                                         　　　自分で開くか、銀行へ電話して<br>
                                         　　　確認しましょう。</b></div>
-                <div class="message"><b>生徒：メールのリンクではなく、自分で<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：メールのリンクではなく、自分で<br>
                                         　　　公式サイトや公式アプリを開くことが<br>
                                         　　　大切なんですね。</b></div>
-                <div class="message"><b>先生：その通りです。公式の方法で確認<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：その通りです。公式の方法で確認<br>
                                         　　　することで、偽サイトに情報を入力<br>
                                         　　　してしまう危険を防ぐことができます。</b></div>
-                <div class="message"><b>先生：では、ここで問題です。</b></div>
-                <div class="message"><img src="銀行2.png" alt="銀行の偽画像" width="300px" height="200px"></div>
-                <div class="message"><b>銀行を名乗るメールが届きました。<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：では、ここで問題です。</b></div>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><img src="銀行2.png" alt="銀行の偽画像" width="300px" height="200px"></div>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><b>銀行を名乗るメールが届きました。<br>
                                         あなたならどうしますか？</b></div>
-                <div class="message"><b>[1] 心配なので、すぐにメールのボタンを<br>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><b>[1] 心配なので、すぐにメールのボタンを<br>
                                         　　押して確認する<br>
                                         [2] 家族や知人に相談しながら、<br>
                                         　　本物かどうか確認する<br>
                                         [3] メールのボタンは押さず、銀行の<br>
                                         　　公式アプリや銀行へ電話して確認する</b></div>
-                <div class="message"><b>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><b>
                     <button class="sentaku-btn"onclick="startanswer7()">
                         [1]
                     </button>
@@ -781,7 +956,7 @@ html{
                     <button class="sentaku-btn"onclick="startanswer9()">
                         [3]
                     </button><br></b></div>
-                
+                </div>
             </div>
                 
         </div>
@@ -841,44 +1016,74 @@ html{
             </div>
         <div class="chat">
             <div class="no-select">
-                <div class="message"><b>＜SNS型投資詐欺とは？＞</b></div>
-                <div class="message"><b>先生：みなさん、SNSを利用していて、<br>
+                <div class="message title">
+                <div class="bubble"><b>＜SNS型投資詐欺とは？＞</b></div>
+                </div>
+                <div class="message teacher">
+                <div class="bubble"><b>先生：みなさん、SNSを利用していて、<br>
                                         　　　こんなメッセージが届いたことは<br>
                                         　　　ありませんか？</b></div>
-                <div class="message"><b>・「必ず儲かる投資があります！」<br>
+                
+                </div>
+                <div class="message teacher">         
+                <div class="bubble"><b>・「必ず儲かる投資があります！」<br>
                                         ・「私もこの投資で利益が出ました！」<br>
                                         ・「今だけ特別に参加できます！」</b></div>
-                <div class="message"><b>生徒：見たことがあります！<br>
+                </div>
+                <div class="message student">
+                <div class="bubble"><b>生徒：見たことがあります！<br>
                                         　　　儲かりそうだと思ってしまいます。</b></div>
-                <div class="message"><b>先生：実は、そのような勧誘の中には<br>
+                </div>
+                <div class="message teacher">
+                <div class="bubble"><b>先生：実は、そのような勧誘の中には<br>
                                         　　　「SNS型投資詐欺」があります。</b></div>
-                <div class="message"><b>生徒：SNS型投資詐欺とは何ですか？</b></div>
-                <div class="message"><b>先生：SNSで知り合った人や投資家を<br>
+                </div>
+                <div class="message student">
+                <div class="bubble"><b>生徒：SNS型投資詐欺とは何ですか？</b></div>
+                </div>
+                <div class="message teacher">
+                <div class="bubble"><b>先生：SNSで知り合った人や投資家を<br>
                                         　　　名乗る人物が近づき、投資話で<br>
                                         　　　お金をだまし取る詐欺です。</b></div>
-                <div class="message"><b>生徒：本当に投資家かどうかは<br>
+                </div>
+                <div class="message student">
+                <div class="bubble"><b>生徒：本当に投資家かどうかは<br>
                                         　　　分からないのですね。</b></div>
-                <div class="message"><b>先生：その通りです。<br>
+                </div>
+                <div class="message teacher">
+                <div class="bubble"><b>先生：その通りです。<br>
                                         　　　利益実績の画面や成功談を見せて<br>
                                         　　　信用させようとすることがあります。</b></div>
-                <div class="message"><b>生徒：利益の画面があれば安心では<br>
+                </div>
+                <div class="message student">
+                <div class="bubble"><b>生徒：利益の画面があれば安心では<br>
                                         　　　ないのですか？</b></div>
-                <div class="message"><b>先生：画面や画像は簡単に作れるため、<br>
+                </div>
+                <div class="message teacher">
+                <div class="bubble"><b>先生：画面や画像は簡単に作れるため、<br>
                                         　　　それだけでは信用できません。<br>
                                         　　　事業者の登録状況を確認することが<br>
                                         　　　大切です。</b></div>
-                <div class="message"><b>先生：ではここで問題です！</b></div>
-                <div class="message"><b>先生：SNSで知り合った投資家を名乗る人から、<br>
-                                        　　　投資を勧めるメッセージが届きました。<br>
-                                        　　　どうするのが適切でしょうか？</b></div>
-                <div class="message"><b>[問題]<br>
+                </div>
+                <div class="message teacher">
+                <div class="bubble"><b>先生：ではここで問題です！</b></div>
+                </div>
+                <div class="message question">
+                <div class="bubble"><b>SNSで知り合った投資家を名乗る人から、<br>
+                                        投資を勧めるメッセージが届きました。<br>
+                                        どうするのが適切でしょうか？</b></div>
+                </div>
+                <div class="message question">
+                <div class="bubble"><b>[問題]<br>
                                         [1] 少額の1万円なら<br>
                                         　　リスクが低いので試してみる<br>
                                         [2] 利益実績の画面を確認し、<br>
                                         　　儲かっていることを確認してから判断する<br>
                                         [3] SNSでの勧誘は安易に信用せず、<br>
                                         　　事業者の登録状況や情報源を確認する</b></div>
-                <div class="message"><b>
+                </div>
+                <div class="message question">
+                <div class="bubble"><b>
                     <button class="sentaku-btn"onclick="startanswer10()">
                         [1]
                     </button>
@@ -888,7 +1093,7 @@ html{
                     <button class="sentaku-btn"onclick="startanswer12()">
                         [3]
                     </button><br></b></div>
-                
+                </div>
             </div>
                 
         </div>
@@ -945,55 +1150,97 @@ html{
                 ニセ警察詐欺編
             </div>
             <div class="chat">
-                <div class="no-select">
-                    <div class="message"><b>＜ニセ警察詐欺とは？＞</b></div>
-                    <div class="message"><b>先生：みなさんは、警察官を名乗る人から<br>
+                <div class="message title">
+                    <div class="bubble"><b>＜ニセ警察詐欺とは？＞</b></div>
+                </div>    
+                <div class="message teacher">
+                <div class="bubble"><b>先生：みなさんは、警察官を名乗る人から<br>
                                             　　　電話がかかってきたことはありますか？</b></div>
-                    <div class="message"><b>生徒：いいえ、ありません。</b></div>
-                    <div class="message"><b>先生：実は最近、警察官を装った詐欺の電話が<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：いいえ、ありません。</b></div>
+                    </div>
+                <div class="message teacher">
+                <div class="bubble"><b>先生：実は最近、警察官を装った詐欺の電話が<br>
                                             　　　増えています。</b></div>
-                    <div class="message"><b>生徒：えっ、本当に警察からでは<br>
+                    </div>
+                <div class="message student">
+                <div class="bubble"><b>生徒：えっ、本当に警察からでは<br>
                                             　　　ないんですか？</b></div>
-                    <div class="message"><b>先生：はい。犯人は警察官になりすまして、<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：はい。犯人は警察官になりすまして、<br>
                                             　　　「あなたの口座が犯罪に利用されている」<br>
                                             　　　などと不安をあおることがあります。</b></div>
-                    <div class="message"><b>生徒：そんなことを言われたら、<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：そんなことを言われたら、<br>
                                             　　　びっくりしてしまいますね。</b></div>
-                    <div class="message"><b>先生：そうですね。そして犯人は、<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：そうですね。そして犯人は、<br>
                                             　　　「調査のためにお金を移してください」<br>
                                             　　　「口座情報を教えてください」などと<br>
                                             　　　要求することがあります。</b></div>
-                    <div class="message"><b>生徒：警察なら従わないといけないと<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：警察なら従わないといけないと<br>
                                             　　　思ってしまいそうです。</b></div>
-                    <div class="message"><b>先生：そこが犯人のねらいです。<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：そこが犯人のねらいです。<br>
                                             　　　本当の警察が電話で資金を移動するよう<br>
                                             　　　求めることはありません。</b></div>
-                    <div class="message"><b>生徒：では、どうすればいいんですか？</b></div>
-                    <div class="message"><b>先生：まず相手の所属部署と氏名を確認し、<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：では、どうすればいいんですか？</b></div>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：まず相手の所属部署と氏名を確認し、<br>
                                             　　　一度電話を切りましょう。</b></div>
 
-                    <div class="message"><b>先生：その後、自分で警察署の代表電話を調べて<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：その後、自分で警察署の代表電話を調べて<br>
                                             　　　連絡し、本当にそのような連絡が<br>
                                             　　　あったのか確認することが大切です。</b></div>
-                    <div class="message"><b>生徒：なるほど。相手が名乗った電話番号には<br>
+                </div>
+                <div class="message student">
+                    <div class="bubble"><b>生徒：なるほど。相手が名乗った電話番号には<br>
                                             　　　折り返さないほうがいいんですね。</b></div>
-                    <div class="message"><b>先生：その通りです。慌てて行動せず、<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：その通りです。慌てて行動せず、<br>
                                             　　　必ず事実を確認する習慣を<br>
                                             　　　身につけましょう。</b></div>
-                    <div class="message"><b>先生：それでは、実際に適切な対応が<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：それでは、実際に適切な対応が<br>
                                             　　　できるか確認してみましょう。</b></div>
-                    <div class="message"><b>先生：それでは問題です。</b></div>
-                    <div class="message"><b>あなたの携帯電話に、<br>
-                                            　　　警察官を名乗る人物から<br>
-                                            　　　電話がありました。</b></div>
-                    <div class="message"><b>先生：相手は「あなたの口座が<br>
-                                            　　　犯罪に利用されている可能性がある」<br>
-                                            　　　と言っています。</b></div>
-                    <div class="message"><b>先生：さらに、「調査のために資金を<br>
-                                            　　　別の口座へ移してください」と<br>
-                                            　　　指示してきました。</b></div>
-                    <div class="message"><b>あなたがとるべき行動は？</b></div>
-                    <div class="message"><b>[1] 警察からの連絡なので、<br>
+                </div>
+                <div class="message teacher">
+                    <div class="bubble"><b>先生：それでは問題です。</b></div>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><b>あなたの携帯電話に、<br>
+                                            警察官を名乗る人物から<br>
+                                            電話がありました。</b></div>
+                </div>
+                <div class="message question">
+                  <div class="bubble"><b>相手は「あなたの口座が<br>
+                                            犯罪に利用されている可能性がある」<br>
+                                            と言っています。</b></div>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><b>さらに、「調査のために資金を<br>
+                                            別の口座へ移してください」と<br>
+                                            指示してきました。</b></div>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><b>あなたがとるべき行動は？</b></div>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><b>[1] 警察からの連絡なので、<br>
                                             　　指示に従って資金を移す<br><br>
                                         [2] 相手の所属部署と氏名を確認したうえで<br>
                                             　　電話を切り、警察署の代表電話へ<br>
@@ -1002,7 +1249,9 @@ html{
                                             　　電話はつないだまま<br>
                                             　　詳しい説明を聞く</b></div>
 
-                    <div class="message"><b>
+                </div>
+                <div class="message question">
+                    <div class="bubble"><b>
                         <button class="sentaku-btn"onclick="startanswer13()">
                             [1]
                         </button>
@@ -1079,6 +1328,10 @@ html{
 //タイトル画面
 function startGame(){
     document.getElementById("titleScreen").style.display = "none";
+    document.getElementById("guideScreen").style.display = "block";
+}
+function showMenu(){
+    document.getElementById("guideScreen").style.display = "none";
     document.getElementById("gameScreen").style.display = "block";
 }
 //シリーズ画面
