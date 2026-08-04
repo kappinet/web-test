@@ -493,51 +493,54 @@ html{
 
     </div>
     <!--説明画面-->
-    <div id="guideScreen" class="game-screen" style="display:none;">
-        <h1>遊び方</h1>
+        <div id="guideScreen" class="game-screen" style="display:none;">
+            <h1>遊び方</h1>
 
-        <div style="padding:20px;font-size:18px;line-height:2;">
-            ・画面をクリックすると会話が進みます。<br><br>
+            <div style="padding:20px;font-size:18px;line-height:2;">
+                ・画面をクリックすると会話が進みます。<br><br>
 
-            ・最後に問題が表示されます。<br><br>
+                ・最後に問題が表示されます。<br><br>
 
-            ・答えだと思う番号のボタンを押して<br>
-            回答してください。<br><br>
+                ・答えだと思う番号のボタンを押して<br>
+                回答してください。<br><br>
 
-            ・楽しく学びながら<br>
-            サイバー犯罪対策を身につけましょう！
+                ・楽しく学びながら<br>
+                サイバー犯罪対策を身につけましょう！
+            </div>
+
+            <button class="start-btn" onclick="showMenu()">
+                内容選択へ
+            </button>
         </div>
-
-        <button class="start-btn" onclick="showMenu()">
-            内容選択へ
-        </button>
-    </div>
     <!--内容選択画面-->
-    <div id="gameScreen" class="game-screen">
-        <h1>内容選択</h1>
-        <h2>学びたいものを選んでね！</h2>
-        <button class="series-btn"onclick="startSeries1()">
-            1.サポート詐欺
-        </button>
-        <button class="series-btn"onclick="startSeries2()">
-            2.偽の通販サイト
-        </button>
-        <button class="series-btn"onclick="startSeries3()">
-            3.フィッシング詐欺
-        </button>
-        <button class="series-btn"onclick="startSeries4()">
-            4.SNS型投資詐欺
-        </button>
-        <button class="series-btn"onclick="startSeries5()">
-            5.ニセ警察詐欺
-        </button>
+    <div class="no-select">
+        <div id="gameScreen" class="game-screen">
+            <h1>内容選択</h1>
+            <h2>学びたいものを選んでね！</h2>
+            <button class="series-btn"onclick="startSeries1()">
+                1.サポート詐欺
+            </button>
+            <button class="series-btn"onclick="startSeries2()">
+                2.偽の通販サイト
+            </button>
+            <button class="series-btn"onclick="startSeries3()">
+                3.フィッシング詐欺
+            </button>
+            <button class="series-btn"onclick="startSeries4()">
+                4.SNS型投資詐欺
+            </button>
+            <button class="series-btn"onclick="startSeries5()">
+                5.ニセ警察詐欺
+            </button>
+        </div>
     </div>
     <!--サポート詐欺説明画面-->
     <div id="seriesScreen1" class="series-screen1">
-        <div class="header">
-            サポート詐欺編
+        <div class="no-select">
+            <div class="header">
+                サポート詐欺編
+            </div>
         </div>
-
         <div class="chat">
             <div class="no-select">
                 <div class="message title">
@@ -813,10 +816,11 @@ html{
     </div>
         <!--フィッシング詐欺説明画面-->
         <div id="seriesScreen3" class="series-screen3">
-            <div class="header">
-                フィッシング詐欺編
+            <div class="no-select">
+                <div class="header">
+                    フィッシング詐欺編
+                </div>
             </div>
-
         <div class="chat">
             <div class="no-select">
                 <div class="message title">
@@ -878,7 +882,7 @@ html{
                     <div class="bubble"><b>先生：まずメールに書かれているリンクや<br>
                                                 　　　ボタンは押さないようにしましょう。</b></div>
                 </div>
-            <div class="message student">
+                <div class="message student">
                 <div class="bubble"><b>生徒：メールに「今すぐ確認してください」と<br>
                                        　　　書かれていてもですか？</b></div>
                 </div>
